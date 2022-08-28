@@ -7,6 +7,7 @@ services:
       - 4444:4444
       - 4443:4443
       - 4442:4442
+    shm_size: '256m'
   chrome:
     image: selenium/node-chrome
     depends_on:
@@ -15,5 +16,7 @@ services:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_GRID_URL=http://127.26.137.54:4444
     deploy:
       replicas: 5
+    shm_size: '256m'
